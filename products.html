@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swift Cart</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!-- Google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+
+
+    <!-- Font awesomeCDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        * {
+            font-family: "Manrope", sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- nav section -->
+    <nav class="bg-black/50 border-b border-gray-200 font-sans shadow-sm">
+        <div class="container max-w-6xl mx-auto px-4 py-3 flex flex-wrap items-center justify-between">
+
+            <!-- Logo Section -->
+            <a href="./index.html" class="text-2xl font-bold flex items-center">
+                <span class="text-slate-50">Swift</span>
+                <span class="text-indigo-600 ml-1">Cart</span>
+            </a>
+
+            <!-- Mobile Right Side (Cart & Menu Button) -->
+            <div class="flex items-center gap-4 md:order-3">
+                <!-- Cart Icon -->
+                <a class="relative flex items-center no-underline" href="#">
+                    <img class="w-10 md:w-12" src="./images/cart-icon.png" alt="Cart">
+                    <div
+                        class="js-cart-quantity absolute -top-1 left-[13px] md:left-[18px] w-5 h-5 flex items-center justify-center text-white text-[12px] font-bold rounded-full">
+                        0
+                    </div>
+                </a>
+
+                <!-- Menu Button -->
+                <label for="menu-toggle"
+                    class="md:hidden cursor-pointer p-2 text-slate-600 border border-gray-200 rounded-lg">
+                    <i class="fa-solid fa-bars"></i>
+                </label>
+            </div>
+
+            <input type="checkbox" id="menu-toggle" class="hidden peer">
+
+            <!-- Nav Links -->
+            <div class="hidden peer-checked:flex md:flex w-full md:w-auto md:flex-grow md:justify-center mt-4 md:mt-0">
+                <ul
+                    class="flex flex-col md:flex-row items-center gap-6 md:gap-8 text-white font-medium w-full md:w-auto">
+                    <li
+                        class="hover:text-indigo-600 transition w-full text-center md:w-auto border-t md:border-none pt-4 md:pt-0">
+                        <a href="./index.html">Home</a>
+                    </li>
+                    <li class="hover:text-indigo-600 transition w-full text-center md:w-auto">
+                        <a href="./products.html">Products</a>
+                    </li>
+                    <li class="hover:text-indigo-600 transition w-full text-center md:w-auto">
+                        <a href="#about">About</a>
+                    </li>
+                    <li class="hover:text-indigo-600 transition w-full text-center md:w-auto pb-4 md:pb-0">
+                        <a href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+
+
+    <!-- Footer Section -->
+    <footer class="bg-slate-900 text-gray-400 pt-10 pb-4">
+        <div class="container max-w-6xl mx-auto px-4 py-3">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-5 mb-8">
+                <!-- Brand Info -->
+                <div class="col-span-1 md:col-span-1">
+                    <h2 class="text-white text-2xl font-bold mb-4">SwiftCart</h2>
+                    <p class="text-sm leading-relaxed">Your one-stop shop for all your fashion and lifestyle needs.
+                        Quality products, fast delivery, and excellent support.</p>
+                </div>
+                <!-- Links -->
+                <div>
+                    <h4 class="text-white font-bold mb-4 uppercase text-xs">Quick Links</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="./index.html" class="hover:text-white transition">Home</a></li>
+                        <li><a href="./products.html" class="hover:text-white transition">Products</a></li>
+                        <li><a href="#" class="hover:text-white transition">About</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-4 uppercase text-xs">Support</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="hover:text-white transition">FAQ</a></li>
+                        <li><a href="#" class="hover:text-white transition">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <!-- Newsletter -->
+                <div>
+                    <h4 class="text-white font-bold mb-4 uppercase text-xs text-center md:text-left">Subscribe to our
+                        newsletter</h4>
+                    <form class="flex gap-2">
+                        <input type="email" placeholder="Enter your email"
+                            class="bg-slate-800 border-none rounded-lg py-2 px-4 w-full focus:ring-2 focus:ring-indigo-500 outline-none">
+                        <button
+                            class="bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 transition">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="border-t border-slate-800 pt-4 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-xs">© 2026 SwiftCart, Inc. All rights reserved.</p>
+                <div class="flex gap-6 text-lg">
+                    <a href="#" class="hover:text-blue-500"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#" class="hover:text-sky-500"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#" class="hover:text-rose-500"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="./scripts/index.js"></script>
+</body>
+
+</html>
