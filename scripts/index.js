@@ -6,6 +6,14 @@ const homePageProducts = (limit) => {
         .then((data) => trandingProducts(data))
 };
 
+const fetchSingleProduct = (id) => {
+    const api = `https://fakestoreapi.com/products/${id}`
+
+    fetch(api)
+        .then((res) => res.json())
+        .then((data) => showProductDetails(data));
+}
+
 
 const trandingProducts = (data) => {
     let productsHTML = "";
@@ -27,6 +35,7 @@ const trandingProducts = (data) => {
                 <p class="text-xl font-bold text-gray-900 mb-4">$${product.price}</p>
                 <div class="flex gap-2">
                     <button
+                        onClick="fetchSingleProduct(${product.id})"
                         class="flex-1 border border-gray-200 py-2 rounded-lg hover:bg-gray-50 transition">Details</button>
                     <button
                         class="flex-1 bg-indigo-600 text-white py-2 rounded-lg hover:bg-indigo-800 transition cursor-pointer">Add</button>
@@ -34,8 +43,43 @@ const trandingProducts = (data) => {
             </div>
         `
 
-        document.querySelector('.js-trending-products').innerHTML = productsHTML;    
+        document.querySelector('.js-trending-products').innerHTML = productsHTML;
     });
 }
 
 homePageProducts(3)
+
+const showProductDetails = (product) => {
+    console.log(product);
+    const modal = document.getElementById('product-modal');
+    const modalBody = document.getElementById('modal-body');
+
+    modalBody.innerHTML = `
+        <div class="flex items-center justify-center bg-gray-50 rounded-xl p-4">
+            <img src="${product.image}" alt="${product.title}" class="max-h-64 object-contain">
+        </div>
+        <div>
+            <span class="text-indigo-600 text-xs font-bold uppercase tracking-wider">${product.category}</span>
+            <h2 class="text-2xl font-bold text-gray-800 my-2">${product.title}</h2>
+            <div class="flex items-center gap-2 mb-4">
+                <span class="text-yellow-400 text-lg">★ ${product.rating.rate}</span>
+                <span class="text-gray-400 text-sm">(${product.rating.count} reviews)</span>
+            </div>
+            <p class="text-gray-600 leading-relaxed mb-6">${product.description}</p>
+            <div class="flex items-center justify-between">
+                <span class="text-3xl font-bold text-gray-900">$${product.price}</span>
+                <button class="bg-indigo-600 text-white px-6 py-3 rounded-xl hover:bg-indigo-700 transition">Add to Cart</button>
+            </div>
+        </div>
+    `;
+
+    modal.classList.remove('hidden');
+    modal.classList.add('flex');
+}
+
+document.getElementById('close-modal').addEventListener('click', () => {
+    const modal = document.getElementById('product-modal');
+
+    modal.classList.add('hidden');
+    modal.classList.remove('flex');
+});
