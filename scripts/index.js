@@ -1,3 +1,6 @@
+import { addToCart } from "./cart.js";
+
+
 const homePageProducts = (limit) => {
     let api = `https://fakestoreapi.com/products?limit=${limit}`
 
@@ -38,6 +41,7 @@ const trandingProducts = (data) => {
                         onClick="fetchSingleProduct(${product.id})"
                         class="flex-1 border border-gray-200 py-2 rounded-lg hover:bg-gray-50 transition">Details</button>
                     <button
+                        onClick="handleAddToCart(${product.id})"
                         class="flex-1 bg-indigo-600 text-white py-2 rounded-lg hover:bg-indigo-800 transition cursor-pointer">Add</button>
                 </div>
             </div>
@@ -68,7 +72,9 @@ const showProductDetails = (product) => {
             <p class="text-gray-600 leading-relaxed mb-6">${product.description}</p>
             <div class="flex items-center justify-between">
                 <span class="text-3xl font-bold text-gray-900">$${product.price}</span>
-                <button class="bg-indigo-600 text-white px-6 py-3 rounded-xl hover:bg-indigo-700 transition">Add to Cart</button>
+                <button
+                onClick="handleAddToCart(${product.id})"
+                class="bg-indigo-600 text-white px-6 py-3 rounded-xl hover:bg-indigo-700 transition">Add to Cart</button>
             </div>
         </div>
     `;
@@ -83,3 +89,10 @@ document.getElementById('close-modal').addEventListener('click', () => {
     modal.classList.add('hidden');
     modal.classList.remove('flex');
 });
+
+const handleAddToCart = (id) => {
+    addToCart(id);
+}
+
+window.handleAddToCart = handleAddToCart;
+window.fetchSingleProduct = fetchSingleProduct;
