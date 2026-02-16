@@ -36,7 +36,7 @@ const showProductDetails = (product) => {
     modal.classList.add('flex');
 }
 
-export const homePageTrandingProducts = (data) => {
+export const productCartDetails = (data) => {
     let productsHTML = "";
 
     console.log(data);

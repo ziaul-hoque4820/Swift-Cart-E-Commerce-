@@ -1,5 +1,5 @@
 import { addToCart, updateCartQuantity } from "./cart.js";
-import { fetchSingleProduct, homePageTrandingProducts } from "./ui-functions.js";
+import { fetchSingleProduct, productCartDetails } from "./ui-functions.js";
 
 
 const homePageProducts = (limit) => {
@@ -12,7 +12,7 @@ const homePageProducts = (limit) => {
 
 
 const trandingProducts = (data) => {
-    homePageTrandingProducts(data)
+    productCartDetails(data)
 }
 
 homePageProducts(3)
