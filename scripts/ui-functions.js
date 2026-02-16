@@ -65,6 +65,6 @@ export const productCartDetails = (data) => {
             </div>
         `
 
-        document.querySelector('.js-trending-products').innerHTML = productsHTML;
+        document.querySelector('.js-products').innerHTML = productsHTML;
     });
 }
