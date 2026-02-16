@@ -1,4 +1,4 @@
-import { addToCart } from "./cart.js";
+import { addToCart, updateCartQuantity } from "./cart.js";
 
 
 const homePageProducts = (limit) => {
@@ -92,6 +92,7 @@ document.getElementById('close-modal').addEventListener('click', () => {
 
 const handleAddToCart = (id) => {
     addToCart(id);
+    updateCartQuantity();
 }
 
 window.handleAddToCart = handleAddToCart;
