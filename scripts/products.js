@@ -1,6 +1,9 @@
 import { addToCart, updateCartQuantity } from "./cart.js";
 import { fetchSingleProduct, productCartDetails } from "./ui-functions.js";
 
+
+updateCartQuantity();
+
 const loadProducts = (category = "all") => {
     const spinner = document.querySelector('.js-spinner');
     const jsProduct = document.querySelector('.js-products');

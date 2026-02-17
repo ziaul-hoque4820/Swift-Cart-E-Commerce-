@@ -1,4 +1,6 @@
-import { cart, decreaseQuantity, increaseQuantity, removeFrmoCart } from "./cart.js";
+import { cart, decreaseQuantity, increaseQuantity, removeFrmoCart, updateCartQuantity } from "./cart.js";
+
+updateCartQuantity();
 
 let allProducts = [];
 

@@ -1,6 +1,7 @@
 import { addToCart, updateCartQuantity } from "./cart.js";
 import { fetchSingleProduct, productCartDetails } from "./ui-functions.js";
 
+updateCartQuantity();
 
 const homePageProducts = (limit) => {
     const spinner = document.querySelector('.js-spinner');
