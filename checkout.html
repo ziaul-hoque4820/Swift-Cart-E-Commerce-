@@ -87,39 +87,9 @@
 
             <div class="flex flex-col lg:flex-row gap-8">
                 <!-- Left Side: Product List -->
-                <div class="lg:w-2/3 space-y-6 js-cart-items">
+                <div class="lg:w-2/3 space-y-6 js-cart-items js-cart-product">
                     <!-- Single Product Card -->
-                    <div
-                        class="flex items-center bg-gray-200 p-6 rounded-2xl shadow-sm border border-gray-100 transition hover:shadow-md">
-                        <div class="w-24 h-24 flex-shrink-0 bg-gray-50 rounded-xl overflow-hidden">
-                            <img src="https://fakestoreapi.com" alt="Product" class="w-full h-full object-contain p-2">
-                        </div>
-                        <div class="ml-6 flex-1">
-                            <div class="flex justify-between items-start">
-                                <div>
-                                    <h3 class="text-lg font-bold text-gray-800">Fjallraven - Foldsack No. 1 Backpack
-                                    </h3>
-                                    <p class="text-sm text-gray-500 mt-1 uppercase tracking-wide">Men's Clothing</p>
-                                </div>
-                                <button class="text-gray-400 hover:text-red-500 transition">
-                                    <svg xmlns="http://www.w3.org" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-                                        stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                                    </svg>
-                                </button>
-                            </div>
-                            <div class="flex justify-between items-center mt-6">
-                                <div class="flex items-center border border-gray-200 rounded-lg">
-                                    <button class="px-3 py-1 hover:bg-gray-50 text-gray-600">-</button>
-                                    <span class="px-4 font-semibold text-gray-800">1</span>
-                                    <button class="px-3 py-1 hover:bg-gray-50 text-gray-600">+</button>
-                                </div>
-                                <span class="text-xl font-bold text-gray-900">$109.95</span>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Additional products would be rendered here via JS -->
+
                 </div>
 
                 <!-- Right Side: Order Summary -->
@@ -213,7 +183,7 @@
     </footer>
 
 
-    <script type="module" src=""></script>
+    <script type="module" src="./scripts/checkout.js"></script>
 </body>
 
 </html>
