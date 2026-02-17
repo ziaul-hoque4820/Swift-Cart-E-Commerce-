@@ -34,3 +34,17 @@ export const updateCartQuantity = () => {
 
     document.querySelector('.js-cart-quantity').innerHTML = cartQuantity;
 }
+
+export const removeFrmoCart = (productId) => {
+    const newCart = [];
+
+    cart.forEach((cartItem) => {
+        if (cartItem.productId !== productId) {
+            newCart.push(cartItem);
+        }
+    });
+
+    cart = newCart;
+
+    saveToStorage();
+}
