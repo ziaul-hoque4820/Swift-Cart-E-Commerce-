@@ -74,6 +74,22 @@ const renderOrderSummary = () => {
 
 
     document.querySelector('.js-cart-product').innerHTML = cartSummaryHTML;
+
+    let subTotal = 0;
+
+    cart.forEach((cartItem => {
+        const product = getProducts(cartItem.productId);
+        if (product) {
+            subTotal += product.price * cartItem.quantity;
+        }
+    }));
+
+    const tax = subTotal * 0.15;
+    const total = subTotal + tax;
+
+    document.querySelector('.js-subtotal').innerText = `$${subTotal.toFixed(2)}`;
+    document.querySelector('.js-tax').innerText = `$${tax.toFixed(2)}`;
+    document.querySelector('.js-total').innerText = `$${total.toFixed(2)}`;
 }
 
 const handleDeleteCartProcuct = (productId) => {
