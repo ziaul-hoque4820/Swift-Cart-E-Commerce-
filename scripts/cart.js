@@ -51,9 +51,20 @@ export const removeFrmoCart = (productId) => {
 
 export const increaseQuantity = (productId) => {
     cart.forEach(cartItem => {
-        if(cartItem.productId === productId){
+        if (cartItem.productId === productId) {
             cartItem.quantity += 1;
         }
     });
     saveToStorage();
 }
+
+export const decreaseQuantity = (productId) => {
+    cart.forEach(cartItem => {
+        if (cartItem.productId === productId) {
+            if (cartItem.quantity > 1) {
+                cartItem.quantity -= 1
+            }
+        }
+    });
+    saveToStorage();
+} 

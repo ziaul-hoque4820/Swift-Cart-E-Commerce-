@@ -1,4 +1,4 @@
-import { cart, increaseQuantity, removeFrmoCart } from "./cart.js";
+import { cart, decreaseQuantity, increaseQuantity, removeFrmoCart } from "./cart.js";
 
 let allProducts = [];
 
@@ -57,7 +57,9 @@ const renderOrderSummary = () => {
                     </div>
                     <div class="flex justify-between items-center mt-6">
                         <div class="flex items-center border border-gray-200 rounded-lg">
-                            <button class="px-3 py-1 hover:bg-gray-50 text-gray-600">-</button>
+                            <button
+                            onClick="handelDecrease(${matchingProducts.id})"
+                             class="px-3 py-1 hover:bg-gray-50 text-gray-600 ${cartItem.quantity === 1 ? 'opacity-40 cursor-not-allowed' : ''}">-</button>
                             <span class="px-4 font-semibold text-gray-800">${cartItem.quantity}</span>
                             <button 
                             onClick="handleIncrease(${matchingProducts.id})"
@@ -84,5 +86,11 @@ const handleIncrease = (productId) => {
     renderOrderSummary();
 }
 
+const handelDecrease = (productId) => {
+    decreaseQuantity(productId);
+    renderOrderSummary();
+}
+
 window.handleDeleteCartProcuct = handleDeleteCartProcuct;
 window.handleIncrease = handleIncrease;
+window.handelDecrease = handelDecrease;
