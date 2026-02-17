@@ -1,4 +1,4 @@
-import { cart, removeFrmoCart } from "./cart.js";
+import { cart, increaseQuantity, removeFrmoCart } from "./cart.js";
 
 let allProducts = [];
 
@@ -59,7 +59,9 @@ const renderOrderSummary = () => {
                         <div class="flex items-center border border-gray-200 rounded-lg">
                             <button class="px-3 py-1 hover:bg-gray-50 text-gray-600">-</button>
                             <span class="px-4 font-semibold text-gray-800">${cartItem.quantity}</span>
-                            <button class="px-3 py-1 hover:bg-gray-50 text-gray-600">+</button>
+                            <button 
+                            onClick="handleIncrease(${matchingProducts.id})"
+                            class="px-3 py-1 hover:bg-gray-50 text-gray-600">+</button>
                         </div>
                         <span class="text-xl font-bold text-gray-900">$${matchingProducts.price}</span>
                     </div>
@@ -77,4 +79,10 @@ const handleDeleteCartProcuct = (productId) => {
     renderOrderSummary();
 }
 
+const handleIncrease = (productId) => {
+    increaseQuantity(productId);
+    renderOrderSummary();
+}
+
 window.handleDeleteCartProcuct = handleDeleteCartProcuct;
+window.handleIncrease = handleIncrease;

@@ -48,3 +48,12 @@ export const removeFrmoCart = (productId) => {
 
     saveToStorage();
 }
+
+export const increaseQuantity = (productId) => {
+    cart.forEach(cartItem => {
+        if(cartItem.productId === productId){
+            cartItem.quantity += 1;
+        }
+    });
+    saveToStorage();
+}
