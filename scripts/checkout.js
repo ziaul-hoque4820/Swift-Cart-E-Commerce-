@@ -3,12 +3,19 @@ import { cart, removeFrmoCart } from "./cart.js";
 let allProducts = [];
 
 const fetchProducts = async () => {
+    const spinner = document.querySelector('.js-spinner');
+    const jsProduct = document.querySelector('.js-cart-product');
+    spinner.classList.remove('hidden');
+    jsProduct.classList.add('hidden');
+
     const api = 'https://fakestoreapi.com/products';
     const res = await fetch(api);
     allProducts = await res.json();
 
     // console.log("Products Loaded", allProducts);
 
+    spinner.classList.add('hidden');
+    jsProduct.classList.remove('hidden');
     renderOrderSummary();
 
 }
