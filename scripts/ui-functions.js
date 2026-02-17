@@ -36,7 +36,7 @@ const showProductDetails = (product) => {
     modal.classList.add('flex');
 }
 
-export const productCartDetails = (data) => {
+export const productCartDetails = (data, containerClass = '.js-products') => {
     let productsHTML = "";
 
     console.log(data);
@@ -65,6 +65,9 @@ export const productCartDetails = (data) => {
             </div>
         `
 
-        document.querySelector('.js-products').innerHTML = productsHTML;
+        const container = document.querySelector(containerClass);
+        if (container) {
+            container.innerHTML = productsHTML;
+        }
     });
 }
